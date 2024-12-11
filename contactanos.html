@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATEMATIKA</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+    <header></header>
+    <nav class="navbar navbar-expand-lg bg-warning">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#"><img src="./img/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded-5">MATEMATIKA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="./index.html">Inicio</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cursos
+              </a>
+              <ul class="dropdown-menu">
+                
+                <li><a class="dropdown-item" href="./inicial.html">Inicial</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./primaria.html">Primaria</a></li>
+                <li><a class="dropdown-item" href="./secundaria.html">Secundaria</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./preu.html">Pre Universitario</a></li>
+                <li><a class="dropdown-item" href="./universitario.html">Universitario</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Videos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./contactanos.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./ayuda.html">Ayuda</a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+<section class="container py-5 text-bg-dark">
+<h1 class="text-center mb-4 text-warning text-shadow">Contáctame</h1>
+<div class="row justify-content-center">
+<div class="col-md-8 col-lg-6">
+    <div class="form-container p-5">
+        <form method="POST" action="enviar.php">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese tu Nombre">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electronico</label>
+                <input type="text" class="form-control" id="email" placeholder="Ingrese su correo electronico">
+            </div>
+            <div class="mb-3">
+                <label for="asunto" class="form-label">Asunto</label>
+                <input type="text" class="form-control" id="asunto" placeholder="Ingrese su asunto">
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label" id="mensaje">Mensaje</label>
+                <textarea name="mensaje" id="mensaje" class="form-control" rows="4" placeholder="Escribe tu mensaje aqui.."></textarea>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-warning">Enviar</button>
+            </div>
+        </form>
+        <label id="message"></label>
+    </div>
+</div>
+</div>
+</section>
+ 
+    <footer class="bg-warning text-white mt-4">
+      <div class="container p-4">
+        <div class="row">
+      <div class="col-12 col-md-6 text-center text-md-start">
+        <h5>Siguenos en nuestras redes sociales</h5>
+        <div class="d-flex justify-content-center justify-content-md-start">
+        <a href="https://www.facebook.com/"><img src="./img/icons/facebook.svg" alt="" class="social-icon img-white"></a>
+        <a href="https://twitter.com/"><img src="./img/icons/twitter.svg" alt="" class="social-icon img-white ms-2"></a>
+        <a href="https://www.instagram.com/"><img src="./img/icons/instagram.svg" alt="" class="social-icon img-white ms-2 "></a>
+        <a href="https://www.linkedin.com/"><img src="./img/icons/linkedin.svg" alt="" class="social-icon img-white ms-2"></a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 text-center text-md-end">
+      <h5>Encuentranos en google Maps</h5>
+      <a href="https://www.google.com/maps" class="text-white text-decoration-none"><img src="./img/icons/map-fill.svg" alt="" class="social-icon img-white"> Ubicanos</a>
+      </div>
+      </div>
+      </div>
+
+    </footer>
+
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script>
+      //Obtener los paramtros de la url (todo lo que va despues del '?')
+      const urlParams = new URLSearchParams(windows.location.search);
+
+      //Obtener el valor del parametro 'status'de la url 
+      const status = urlParams.get('status');
+
+
+      //Seleccionar el elemento html con el id 'message' donde se mostrara el mensaje
+      const messageElement =document.getElementById('message');
+
+      //Verificar si el valor del parametro 'status' es igual a 'success' (exito)
+      if (status === 'success') {
+
+          //Si es exito, cambiar el texto del elemteno para mostrar el mensaje de exito
+          messageElement.textContent = 'Mesanje enviado exitosamente.';
+
+          //Cambiar el color del texto del mensaje a verde
+          messageElement.style.color = 'green';
+          
+      } else if (status === 'error') {
+          //Si hay error, cambiar el texto del elemento para mostrar el mensaje de error
+          messageElement.textContent = 'Error al enviar el formulario.';
+          //Cambiar el color del texto del mensaje a rojo
+          messageElement.style.color = 'red';
+      }
+  </script>
+</body>
+</html>
